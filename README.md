@@ -1,6 +1,6 @@
 # CoffeeHouse
 
-RaspberryPi's are the prototypers swiss-army knife.  This repo aims to make getting them up and running quickly.
+RaspberryPi's are the prototypers swiss-army knife (:switzerland::knife:).  This repo aims to get you working on your prototype rather than debugging your Pi.  The handful of things that are currently covered include:
   
 - [x] Create SSH Key-Pair
 - [x] Downloading Raspbian
@@ -42,6 +42,9 @@ Document Link | Topic
 --------------| -------
 [Overall Command Walkthrough](walkthrough.md) | Full explanation of commands in [get_raspbian.sh](get_raspbian.sh) and [setup_pi_script.sh](setup_pi_script.sh)
 
+<p align="center">
+  <img width="200" height="300" src="https://www.vicarious.com/wp-content/uploads/2017/08/schema_imagination_faster-2.gif">
+</p>
 
 ## Pull Requests
 Please feel free to fork and submit pull requests!  If you have a feature request feel free to open up an issue.
