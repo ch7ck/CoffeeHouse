@@ -1,10 +1,10 @@
-#Debugging Mounted Raspbian SD Card
+# Debugging Mounted Raspbian SD Card
 
 Let's suppose that you need to evaluate a Raspberry Pi micro-sd card that is powered off.  
 
 In theory you could `lsblk` or `fdisk -l` every single time to see what your device name is but it leaves you having to mount the drive by hand every single time you insert the micro-sd card adapter to your workstation.  Rather than having mount your drive manually you should create a systemd-automount service.  More information can be found by inspecting the man page `man systemd.automount`
 
-##Find out Hardware ID of Micro-SD card:
+## Find out Hardware ID of Micro-SD card:
 To become sudo on your Debian, Ubuntu, or Raspbian box while keeping your ENV use:
 
     username@hostname:~$ sudo -Es
@@ -95,6 +95,6 @@ To get more information about systemd automounting:
 ```man systemd.automount```
 
 ## TODO
-    [x] Basic Usage
-    [ ] More documentation
-    [ ] More information regarding 
+- [x] Basic Usage
+- [ ] More documentation
+- [ ] More information regarding 
