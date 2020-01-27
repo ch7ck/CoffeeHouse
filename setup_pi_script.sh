@@ -7,10 +7,15 @@ uname -a | grep Linux || ( echo "not on a linux box, lets stop here" && exit -1 
 
 
 # You need to set this once you have found the device name `lsblk`
-MICROSDDEVICE="" # /dev/sd?
+MICROSDDEVICE=$1 # /dev/sd?
 
-mkdir -v ${PWD}/pibootpartition
-mkdir -v ${PWD}/pirootfs
+if [[ ! -d ${PWD}/pibootpartition ]]; then
+    mkdir -v ${PWD}/pibootpartition
+fi
+
+if [[ ! -d ${PWD}/pirootfs ]]; then
+    mkdir -v ${PWD}/pirootfs
+fi
 
 mount -v ${MICROSDDEVICE}1 ${PWD}/pibootpartition
 mount -v ${MICROSDDEVICE}2 ${PWD}/pirootfs
@@ -18,6 +23,17 @@ mount -v ${MICROSDDEVICE}2 ${PWD}/pirootfs
 FULLPIROOTPATH=${PWD}/pirootfs
 
 touch ${PWD}/pibootpartition/ssh
+
+function enable_camera() {
+
+cat >> ${PWD}/pibootpartition/config.txt << "EOF"
+start_x=1
+gpu_mem=128
+disable_camera_led=1
+EOF
+
+};
+
 
 
 # Create ssh key pair
@@ -130,8 +146,12 @@ Host RaspiHotspot
     ServerAliveInterval 200
     IdentitiesOnly yes
     IdentityFile paranoid_rsa
+    UserKnownHostsFile /dev/null 
+    StrictHostKeyChecking no
 EOF
 
 printf "\nTo SSH INTO THE PI CONNECT TO THE coffeeshop wifinetwork then use the paranoid_ssh_config file\n\n"
 
 printf "DO THIS:\n\nssh -F paranoid_ssh_config RaspiHotspot\n\n"
+
+enable_camera
