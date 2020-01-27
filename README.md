@@ -8,10 +8,7 @@ RaspberryPi's are the prototypers swiss-army knife (:switzerland::knife:).  This
 
 ## Getting Started
 
-Right now bash variables need to be set:
- 
-`MICROSDDEVICE=` in both [get_raspbian.sh](get_raspbian.sh) and [setup_pi_script.sh](setup_pi_script.sh)
-
+Bash variables should be set in both [get_raspbian.sh](get_raspbian.sh) and [setup_pi_script.sh](setup_pi_script.sh)
 
 Set the scripts as executable:
 
@@ -22,6 +19,9 @@ Run the executable to download and write the raspbian image:
     
     ./get_raspbian.sh
 
+To specify your Micro-sd card (`MICROSDDEVICE=`) pass the /dev/sdX device as your argument:
+
+    ./setup_pi_script.sh /dev/sdc
 
 Make sure get_raspbian has successfully downloaded and been `dd`'d to your micro-sd card.
 
